@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <title>Conversor de Dólar e Real</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-secondary">Conversor de Dólar para Real</h1>
+            <p class="lead">
+                Converta os valores
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <form method="POST" action="#" th:action="@{/}" th:object="${toConvert}">
+                    <h5 class="text-info">Insira a cotação do dólar</h5>
+                    <input class="form-control form-control-lg mb-2" type="text" placeholder="Cotação do dolar" th:field="*{usd}"/>
+                    <h5 class="text-info">Informe o valor em dólar</h5>
+                    <input class="form-control form-control-lg mb-2" type="text" placeholder="Valor em dolar" th:field="*{brl}"/>
+                    <button type="submit" class="btn btn-info btn-lg btn-block mb-2">
+                        Converter para real
+                    </button>
+                </form>
+
+                <div class="text-center">
+                    <h1>
+                        <span class="badge badge-success" th:text="' R$ ' + ${convertedValue}">
+                        </span>
+                    </h1>
+                </div>
+
+            </div>
+        </div>
+        <hr/>
+
+        <footer class="footer">
+            <p>2020 - Projeto para disciplina de Programação Avançada para Web</p>
+        </footer>
+
+    </div>
+</body>
+</html>
